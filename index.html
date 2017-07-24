@@ -46,7 +46,11 @@
         polygon.bindPopup("I am a polygon.");
 
         var popup = L.popup().setLatLng([51.5,-0.09]).setContent("I am a standalone popup.").openOn(mymap);
-        
+        function onMapClick(e){
+            popup.setLatLng(e.latlng)
+            .setContent("You Clicked the map at"+e.latlng.toString())
+        }
+        mymap.on('click',onMapClick);
         // OR JUST USE OPEN STREET MAP TILES INSTEAD (NO MAPBOX ACCOUNT NEEDED)
 
       
